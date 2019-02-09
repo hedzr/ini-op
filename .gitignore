@@ -1,0 +1,56 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+.vagrant/
+/cs/cs
+/cs/vagrant/cs
+
+.idea/
+*.iml
+
+.DS\_Store
+nohup.*
+*.log
+*.1
+*.tgz
+*.gz
+*.tar
+*.bz2
+*.xz
+*.zip
+
+tmp/
+bin/
+output/
+target/
+tests/
+ref/
+work/
+
+### Go template
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
+.glide/
+glide.tree.txt
+
+.pid/
+
+
+ms\-first
+f.json
+fg.json
+routes.json
+*.deb
+*.rpm
+*.bin
+1.cache
