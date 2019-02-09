@@ -3,14 +3,13 @@ sudo: false
 matrix:
   include:
     - go: 1.11.x
-      env: LATEST=true
+      env:
+        - LATEST=true
+        - IMPPATH=github.com/hedzr/ini-op
   #  - go: 1.x
   #  - go: tip
   # allow_failures:
   #  - go: tip
-
-env:
-  - IMPPATH=github.com/hedzr/ini-op
 
 before_install:
   # gox simplifies building for multiple architectures
