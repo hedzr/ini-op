@@ -65,7 +65,9 @@ var RootCmd = &cobra.Command{
 				if cli_common.PrintVersion != nil {
 					cli_common.PrintVersion()
 				} else {
-					fmt.Printf("%s version: %s [%s] | built at: %s\n", cli_common.AppName, cli_common.Version, cli_common.Githash, cli_common.Buildstamp)
+					fmt.Printf("%s version: %s [%s] | built at %s with %s | by @hedzr13\n",
+						cli_common.AppName, cli_common.Version, cli_common.Githash,
+						cli_common.Buildstamp, cli_common.GoVersion)
 				}
 				return
 			}
