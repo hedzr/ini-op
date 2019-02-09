@@ -27,12 +27,19 @@ script:
   # Only build binaries from the latest Go release.
   - if [ "${LATEST}" = "true" ]; then gox -os="linux darwin windows" -arch="amd64" -output="bin/ini-op.." -ldflags "-s -w -X ${IMPPATH}/cli_common.Buildstamp=`date -u '+%Y-%m-%d_%I:%M:%S%p'` -X ${IMPPATH}/cli_common.Githash=`git rev-parse --short HEAD` -X ${IMPPATH}/cli_common.GoVersion=`go version`" -verbose cli/...; fi
 
+#before_deploy:
+#  # Set up git user name and tag this commit
+#  - git config --local user.name "Hedzr Yeh"
+#  - git config --local user.email "hedzrz@gmail.com"
+#  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+#  - git tag $TRAVIS_TAG
+
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
     # Your *encrypted* GitHub key, as the output of the Travis CI CLI tool.
-    secure: K94JYYm0N/BzDYzMoWjo1MrqgsWOmIb8kTiQ1/GCuTm/wHc1eUF2I9I7mej6ZMcUpxVP0yJfNHwZmcwWYq9DNnRDlq4HNwYKjJjIZDMEcVqF/DN6Muo6XCMly0OjQvy8/gRrUUFCQ771BjDysmQzQFlv2V5BbcQ1gphuWP1lyOHQ2Z40l+Ss/g5fPq11M1L44cwrveUKlX9yypQUSzGgq12+JY2W3EOIr4NttTwIJ1dVFU8SmNICcXBXy/0Ed6p5NEewJKBshyVf0RlpZjHIJElzOPqctRYSgLlru2eJbnwaZPQ/0aT6wFLPXAk9MDhp1D87GTPyIgHg0mqRAJw3Ey6X2vpL4oyn0q/kc4YVgjdk18g3fsTGqHiD20rQR6yFPv+yEidVBaiqZ7lEDoUKaU2tbJ8Gc+t0zVesPMI6AX2AXTT/ZhNgyE88LpCW9HXXQlw2UYabQiCH5LljALGQJg92lAkEEiFjU5/k3I+jtdL7A0DjFc8CHgnyeFagJga8CqkjhIPytl+vrpuxb8GQKbqR5BPfEfPZyUCs7SwVGiOp4C7Mi3+XTG9id3z+GDi8PHVsoYGQEOIWM3dcuvT2Wv8FXt/k5ITj0vDexflgHZL75L+zEM7fukCkeKnULY1V81jS2vJxXgQe+JJT2QDZJuRyDdhkbUQNHqbleiMzZR4=
+    secure: GIM3BLLsgOIKB2xB9Uigt6/mCXG8gr0MIYJ5rHyoJzybe1uwGuf8LVK5r8+wqPIjlToZQHdLl+oMsLNV93CnHJiiMgioXgtQDLhFFwireIHTbpPEDLcqVIkLXjr62wJktkIUS8haGi+PjaSS0IEboPbDsozIpaDxufKBwSMGSg82QMlCbgc2JVjohY9wj4OijEgyeYlyQX5TcO+5ZZXxt8fS3zsAIjcTnr9P54k1P0EJ3eA17n4cJJxMrbzPv5Ku0o41OgYgTdjVr4+oWRO+xcoYSNjC0XCe+Mt/yXRRSskDs84YFflvB4HeDaW1uKYQqF1BEh1SdoHKyJQDis7wv64/BBFs/vWXEKDpZxGGaVRKbU1bF8iSgPQvnZx31/pCg0IIJAdqxy+2oPiPCuWX5fZmopxR2KOvDLC4Mnz8HLWO3CE5rEUsp9z4cmf0ilfWeIzYhgO30EuPRc5rHEdL29xxi9F+r6/uVIWhnM1L5CS50yVdvKnD00AcdMKr/B6KN6arLA9brgdpuRgGSKf4hClArpKManDRi/mqKss7JnyZZ9+3QXyr45Cr2wgdwVYIgMBYaw0HieEzfkcA7iKAfVOyMtV0QvPlPpNu47beNOXS+DDQFdbKDWchusFB4LcVrq5m/qfJaZuVTj9nQaUdOzC5fcO2fAPa/dMqFvYgA9w=
   file:
     # The names of the binaries to output, based on the -output template passed to gox.
     - bin/ini-op.windows.amd64.exe
