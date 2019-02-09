@@ -22,7 +22,7 @@ script:
   - if [ ! -d bin ]; then mkdir bin; fi
   - go get -t -v ./...
   - go get -u -v github.com/inconshreveable/mousetrap
-  - go get -u -v github.com/konsorten/go-windows-terminal-sequences
+  #- go get -u -v github.com/konsorten/go-windows-terminal-sequences
   - diff -u <(echo -n) <(gofmt -d .)
   #- go vet $(go list ./... | grep -v /vendor/)
   #- go test -v -race ./...
