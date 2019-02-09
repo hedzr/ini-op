@@ -1,5 +1,7 @@
 # ini-op
 
+[![Build Status](https://travis-ci.org/hedzr/ini-op.svg?branch=master)](https://travis-ci.org/hedzr/ini-op)
+
 Read/Write inifile.
 
 ```bash
