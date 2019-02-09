@@ -21,8 +21,8 @@ install:
 script:
   - if [ ! -d bin ]; then mkdir bin; fi
   - go get -t -v ./...
-  - go get -t -v github.com/inconshreveable/mousetrap
-  - go get -t -v github.com/konsorten/go-windows-terminal
+  - go get -u -v github.com/inconshreveable/mousetrap
+  - go get -u -v github.com/konsorten/go-windows-terminal-sequences
   - diff -u <(echo -n) <(gofmt -d .)
   #- go vet $(go list ./... | grep -v /vendor/)
   #- go test -v -race ./...
