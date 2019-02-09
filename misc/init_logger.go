@@ -27,14 +27,15 @@ import (
 	"fmt"
 	"github.com/coreos/go-systemd/journal"
 	log "github.com/sirupsen/logrus"
+	"path"
+	"strings"
+
 	//"github.com/cihub/seelog"
 	//"path"
 	//"strings"
 	////"github.com/op/go-logging"
 	"github.com/spf13/viper"
 	"os"
-
-	"github.com/hedzr/univer/daemon"
 )
 
 func GetLevel() log.Level {
@@ -43,7 +44,7 @@ func GetLevel() log.Level {
 
 func InitLogger() {
 	var foreground = viper.GetBool("server.foreground")
-	var file = daemon.DefaultLogFile()
+	var file = DefaultLogFile()
 	var lvl = viper.GetString("server.logger.level")
 
 	var target = viper.GetString("server.logger.target")
@@ -134,48 +135,37 @@ func InitLogger() {
 	//os.Exit(0)
 }
 
-//func InitLoggerLast() {
-//	var logger seelog.LoggerInterface
-//	var err error
-//	var foreground = viper.GetBool("server.foreground")
-//	var basicLogConfig string
-//
-//	homeDir := os.Getenv("HOME")
-//	seelogPath := path.Join(homeDir, DEFAULT_SEELOG_FILENAME)
-//	if _, err := os.Stat(seelogPath); err == nil {
-//		logger, err = seelog.LoggerFromConfigAsFile(seelogPath)
-//	} else {
-//		if foreground {
-//			basicLogConfig = DEFAULT_SEELOG_CONFIG
-//		} else {
-//			basicLogConfig = DAEMON_SEELOG_CONFIG
-//		}
-//
-//		basicLogConfig := strings.Replace(basicLogConfig, "${dir}", daemon.DefaultLogDirectory(), -1)
-//
-//		lvl := viper.GetString("server.logger.level")
-//		basicLogConfig = strings.Replace(basicLogConfig, "minlevel=\"info\"", fmt.Sprintf("minlevel=\"%s\"", lvl), -1)
-//
-//		//if foreground == false {
-//		//	basicLogConfig = strings.Replace(basicLogConfig, "<format id=\"main-console\" format=\"[%LEV] %Msg%n\"/>", "", -1)
-//		//}
-//
-//		//fmt.Printf("@@@@\n%s\n@@@@\n", basicLogConfig)
-//
-//		logger, err = seelog.LoggerFromConfigAsString(basicLogConfig)
-//	}
-//	if err != nil {
-//		seelog.Critical("err parsing config log file", err)
-//		return
-//	}
-//
-//	seelog.ReplaceLogger(logger)
-//	seelog.Flush()
-//
-//	//log.Trace("TRACE")
-//	//log.Debug("DEBUG")
-//	//log.Info("INFO")
-//	//log.Warn("WARN")
-//	//log.Error("ERROR")
-//	//log.Critical("CRITICAL")
-//}
+func DefaultPidPath() string {
+	serviceName := viper.GetString("server.serviceName")
+	for _, pidPath := range []string{"/var/run/${Service.Name}/${Service.Name}.pid",
+		os.Getenv("HOME") + "/.${Service.Name}/pid/${Service.Name}.pid",
+		"/tmp/${Service.Name}/${Service.Name}.pid"} {
+		//fmt.Printf("pid path=%s\n", pidPath)
+		if strings.Contains(pidPath, "$") {
+			pidPath = strings.Replace(pidPath, "${Service.Name}", serviceName, -1)
+		}
+
+		dir := path.Dir(pidPath)
+		if _, err := os.Stat(dir); os.IsNotExist(err) {
+			if err = os.MkdirAll(dir, 0775); err != nil {
+				//
+			} else {
+				return pidPath
+			}
+		} else {
+			return pidPath
+		}
+	}
+	return ""
+}
+
+func DefaultLogDirectory() string {
+	str := viper.GetString("server.logger.dir")
+	return str
+}
+
+func DefaultLogFile() string {
+	serviceName := viper.GetString("server.serviceName")
+	logPath := fmt.Sprintf("%s/%s.log", DefaultLogDirectory(), serviceName)
+	return logPath
+}

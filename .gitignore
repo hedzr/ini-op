@@ -54,3 +54,5 @@ routes.json
 *.rpm
 *.bin
 1.cache
+
+main
