@@ -32,7 +32,7 @@ script:
 #before_deploy:
 #  # Set up git user name and tag this commit
 #  - git config --local user.name "Hedzr Yeh"
-#  - git config --local user.email "hedzrz@gmail.com"
+#  - git config --local user.email "hedzr#at#gmail"
 #  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
 #  - git tag $TRAVIS_TAG
 
@@ -59,7 +59,7 @@ deploy:
 
 notifications:
   email:
-    recipients:
-      - hedzrz@gmail.com
+    #recipients:
+    #  - hedzr#at#gmail
     on_success: change
     on_failure: always
