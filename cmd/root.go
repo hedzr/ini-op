@@ -275,12 +275,12 @@ func init() {
 	if cli_common.DebugBuild {
 		// Cobra also supports local flags, which will only run
 		// when this action is called directly.
-		RootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+		RootCmd.Flags().BoolP("toggle", "T", false, "Help message for toggle")
 	}
-	RootCmd.PersistentFlags().BoolP("version", "V", false, "Show versions")
+	RootCmd.PersistentFlags().BoolP("version", "v", false, "Show versions")
 
-	RootCmd.PersistentFlags().BoolVarP(&cli_common.Verbose, "verbose", "v", false, "verbose output")
-	//RootCmd.PersistentFlags().BoolVarP(&cli_common.VerboseVV, "vv", "vv", false, "very verbose output")
-	//RootCmd.PersistentFlags().BoolVarP(&cli_common.VerboseVVV, "vvv", "vvv", false, "very very verbose output")
-	RootCmd.PersistentFlags().BoolVarP(&cli_common.Debug, "debug", "d", false, "debug mode")
+	RootCmd.PersistentFlags().BoolVarP(&cli_common.Verbose, "verbose", "V", false, "verbose output")
+	//RootCmd.PersistentFlags().BoolVarP(&cli_common.VerboseVV, "vv", "VV", false, "very verbose output")
+	//RootCmd.PersistentFlags().BoolVarP(&cli_common.VerboseVVV, "vvv", "VVV", false, "very very verbose output")
+	RootCmd.PersistentFlags().BoolVarP(&cli_common.Debug, "debug", "D", false, "debug mode")
 }
