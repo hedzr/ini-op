@@ -40,8 +40,10 @@ deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    # Your *encrypted* GitHub key, as the output of the Travis CI CLI tool.
-    # gem install travis; travis setup releases;
+    # Your *encrypted* GitHub key, as the output of the Travis CI CLI tool. such as:
+    #   gem install travis; travis setup releases;
+    # and:
+    #   travis encrypt AMAP_KEY="xxxx" --add
     secure: GIM3BLLsgOIKB2xB9Uigt6/mCXG8gr0MIYJ5rHyoJzybe1uwGuf8LVK5r8+wqPIjlToZQHdLl+oMsLNV93CnHJiiMgioXgtQDLhFFwireIHTbpPEDLcqVIkLXjr62wJktkIUS8haGi+PjaSS0IEboPbDsozIpaDxufKBwSMGSg82QMlCbgc2JVjohY9wj4OijEgyeYlyQX5TcO+5ZZXxt8fS3zsAIjcTnr9P54k1P0EJ3eA17n4cJJxMrbzPv5Ku0o41OgYgTdjVr4+oWRO+xcoYSNjC0XCe+Mt/yXRRSskDs84YFflvB4HeDaW1uKYQqF1BEh1SdoHKyJQDis7wv64/BBFs/vWXEKDpZxGGaVRKbU1bF8iSgPQvnZx31/pCg0IIJAdqxy+2oPiPCuWX5fZmopxR2KOvDLC4Mnz8HLWO3CE5rEUsp9z4cmf0ilfWeIzYhgO30EuPRc5rHEdL29xxi9F+r6/uVIWhnM1L5CS50yVdvKnD00AcdMKr/B6KN6arLA9brgdpuRgGSKf4hClArpKManDRi/mqKss7JnyZZ9+3QXyr45Cr2wgdwVYIgMBYaw0HieEzfkcA7iKAfVOyMtV0QvPlPpNu47beNOXS+DDQFdbKDWchusFB4LcVrq5m/qfJaZuVTj9nQaUdOzC5fcO2fAPa/dMqFvYgA9w=
   file:
     # The names of the binaries to output, based on the -output template passed to gox.
