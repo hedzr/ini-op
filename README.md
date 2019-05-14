@@ -4,6 +4,8 @@
 
 Read/Write inifile.
 
+**TODO**: rewrite with new `cmdr`; add `yaml`, `json`, and `toml` supports;
+
 ```bash
 $ ini-op
 Usage:
