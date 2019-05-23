@@ -1,6 +1,8 @@
 # ini-op
 
 [![Build Status](https://travis-ci.org/hedzr/ini-op.svg?branch=master)](https://travis-ci.org/hedzr/ini-op)
+[![Go Report Card](https://goreportcard.com/badge/github.com/hedzr/ini-op)](https://goreportcard.com/report/github.com/hedzr/ini-op)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/hedzr/ini-op.svg?label=release)
 
 Read/Write inifile.
 
