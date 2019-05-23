@@ -7,6 +7,7 @@ matrix:
         - LATEST=true
         - IMPPATH=github.com/hedzr/ini-op
         - CMDR_CONF=github.com/hedzr/cmdr
+        - GO111MODULE=on
   #  - go: 1.x
   #  - go: tip
   # allow_failures:
@@ -21,7 +22,7 @@ install:
 
 script:
   - if [ ! -d bin ]; then mkdir bin; fi
-  - go get -t -v ./...
+  - go mod download # go get -t -v ./...
   - go get -u -v github.com/inconshreveable/mousetrap
   #- go get -u -v github.com/konsorten/go-windows-terminal-sequences
   - diff -u <(echo -n) <(gofmt -d .)
