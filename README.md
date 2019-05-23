@@ -9,26 +9,27 @@ Read/Write inifile.
 
 
 ```bash
-$ ini-op
-Usage:
-  ini-op [flags]
-  ini-op [command]
+$ bin/ini-op
+ini-op is an effective tool for read/write inifile by Hedzr Yeh <hedzrz@gmail.com> - v0.2.3
 
-Available Commands:
-  entry       get/put entry
-  help        Help about any command
-  section     get/put section
-  version     Print the version.
+Usages:
+    ini-op [Commands]  [Options] [Parent/Global Options]
 
-Flags:
-      --config string   config file (default is $HOME/./*.yaml)
-  -d, --debug           debug mode
-  -h, --help            help for ini-op
-  -v, --verbose         verbose output
-  -V, --version         Show versions
+Commands:
+  e, entry                                        get/put entry.
+  s, section, sec                                 get/put section
+  [Misc]
+  g, generate, gen                                generators for this app.
+  version, ver                                    Show the version of this app.
 
-Use "ini-op [command] --help" for more information about a command.
+Options:
+  [Misc]
+       --config=[Location of config file]         load config files from where you specified
+  -q,  --quiet                                    No more screen output. (default=false)
+  -v,  --verbose, --vv, --vvv                     Show this help screen (default=false)
+  -V,  --version                                  Show the version of this app. (default=false)
 
+Type '-h' or '--help' to get command help screen.
 ```
 
 ## Commands
@@ -36,18 +37,27 @@ Use "ini-op [command] --help" for more information about a command.
 ### command `section`
 
 ```bash
-$ bin/ini-op s
+$ bin/ini-op section
+ini-op is an effective tool for read/write inifile by Hedzr Yeh <hedzrz@gmail.com> - v0.2.3
 
-Usage:
-  ini-op section [command]
+Usages:
+    ini-op section [Sub-Commands]  [Options] [Parent/Global Options]
 
-Aliases:
-  section, s, sec
+Description:
+    get/put section
 
-Available Commands:
-  get         get section
-  rm          delete section
+Sub-Commands:
+  g, get, rd, read                                get a section
+  r, rm, remove, del, erase, delete               remove a scrtion
 
+Global Options:
+  [Misc]
+       --config=[Location of config file]         load config files from where you specified
+  -q,  --quiet                                    No more screen output. (default=false)
+  -v,  --verbose, --vv, --vvv                     Show this help screen (default=false)
+  -V,  --version                                  Show the version of this app. (default=false)
+
+Type '-h' or '--help' to get command help screen.
 ```
 
 Usages:
@@ -63,19 +73,28 @@ $ ini-op s rm server $HOME/abc.ini
 ### command `entry`
 
 ```bash
-$ bin/ini-op e
+$ bin/ini-op entry
+ini-op is an effective tool for read/write inifile by Hedzr Yeh <hedzrz@gmail.com> - v0.2.3
 
-Usage:
-  ini-op entry [command]
+Usages:
+    ini-op entry [Sub-Commands]  [Options] [Parent/Global Options]
 
-Aliases:
-  entry, e
+Description:
+    get/put entry.
 
-Available Commands:
-  get         get an entry
-  put         put string entry
-  rm          delete an entry
+Sub-Commands:
+  g, get, rd, read                                get an entry.
+  p, put                                          put value to an entry.
+  r, rm, remove, del, erase, delete               remove an entry.
 
+Global Options:
+  [Misc]
+       --config=[Location of config file]         load config files from where you specified
+  -q,  --quiet                                    No more screen output. (default=false)
+  -v,  --verbose, --vv, --vvv                     Show this help screen (default=false)
+  -V,  --version                                  Show the version of this app. (default=false)
+
+Type '-h' or '--help' to get command help screen.
 ```
 
 Usages:
