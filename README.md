@@ -4,7 +4,7 @@
 
 Read/Write inifile.
 
-**TODO**: rewrite with new `cmdr`; add `yaml`, `json`, and `toml` supports;
+
 
 ```bash
 $ ini-op
@@ -85,9 +85,21 @@ $ ini-op e put server port 1313 $HOME/abc.ini
 $ ini-op e rm server port $HOME/abc.ini
 ```
 
-## Contributions
 
-welcome
+
+## **TODO**
+
+- [x] rewrite with new `cmdr`;
+- [ ] add `yaml`, `json`, and `toml` supports;
+- [ ] clean codes
+
+
+
+## Contrib
+
+Feel free to issue.
+
+
 
 ## LICENSE
 

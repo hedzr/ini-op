@@ -2,10 +2,11 @@ language: go
 sudo: false
 matrix:
   include:
-    - go: 1.11.x
+    - go: 1.12.x
       env:
         - LATEST=true
         - IMPPATH=github.com/hedzr/ini-op
+        - CMDR_CONF=github.com/hedzr/cmdr
   #  - go: 1.x
   #  - go: tip
   # allow_failures:
@@ -27,7 +28,8 @@ script:
   #- go vet $(go list ./... | grep -v /vendor/)
   #- go test -v -race ./...
   # Only build binaries from the latest Go release.
-  - if [ "${LATEST}" = "true" ]; then cd cli; gox -os="linux darwin " -arch="amd64" -output="../bin/ini-op.{{.OS}}.{{.Arch}}" -ldflags="-s -w -X \"${IMPPATH}/cli_common.Buildstamp=`date -u '+%Y-%m-%d_%I:%M:%S%p'`\" -X \"${IMPPATH}/cli_common.Githash=`git rev-parse --short HEAD`\" -X \"${IMPPATH}/cli_common.GoVersion=`go version`\"" -verbose ./...; cd ..; for f in bin/ini-op.*; do gzip $f; done; ls -la bin; fi
+  - if [ "${LATEST}" = "true" ]; then cd cli; gox -os="linux darwin windows" -arch="amd64" -output="../bin/ini-op.{{.OS}}.{{.Arch}}" -ldflags="-s -w -X \"${CMDR_CONF}.Buildstamp=`date -u '+%Y-%m-%d_%I:%M:%S%p'`\" -X \"${CMDR_CONF}.Githash=`git rev-parse --short HEAD`\" " -verbose ./...; cd ..; for f in bin/ini-op.*; do gzip $f; done; ls -la bin; fi
+  # -X \"${CMDR_CONF}.GoVersion=`go version`\"
 
 #before_deploy:
 #  # Set up git user name and tag this commit
@@ -44,10 +46,10 @@ deploy:
     #   gem install travis; travis setup releases;
     # and:
     #   travis encrypt AMAP_KEY="xxxx" --add
-    secure: GIM3BLLsgOIKB2xB9Uigt6/mCXG8gr0MIYJ5rHyoJzybe1uwGuf8LVK5r8+wqPIjlToZQHdLl+oMsLNV93CnHJiiMgioXgtQDLhFFwireIHTbpPEDLcqVIkLXjr62wJktkIUS8haGi+PjaSS0IEboPbDsozIpaDxufKBwSMGSg82QMlCbgc2JVjohY9wj4OijEgyeYlyQX5TcO+5ZZXxt8fS3zsAIjcTnr9P54k1P0EJ3eA17n4cJJxMrbzPv5Ku0o41OgYgTdjVr4+oWRO+xcoYSNjC0XCe+Mt/yXRRSskDs84YFflvB4HeDaW1uKYQqF1BEh1SdoHKyJQDis7wv64/BBFs/vWXEKDpZxGGaVRKbU1bF8iSgPQvnZx31/pCg0IIJAdqxy+2oPiPCuWX5fZmopxR2KOvDLC4Mnz8HLWO3CE5rEUsp9z4cmf0ilfWeIzYhgO30EuPRc5rHEdL29xxi9F+r6/uVIWhnM1L5CS50yVdvKnD00AcdMKr/B6KN6arLA9brgdpuRgGSKf4hClArpKManDRi/mqKss7JnyZZ9+3QXyr45Cr2wgdwVYIgMBYaw0HieEzfkcA7iKAfVOyMtV0QvPlPpNu47beNOXS+DDQFdbKDWchusFB4LcVrq5m/qfJaZuVTj9nQaUdOzC5fcO2fAPa/dMqFvYgA9w=
+    secure: KU1WLzi4IRjgiPJ+mwtJOaHb/ZwZFvPzPkOnKDErn3nLf3HJjnjsSWaHmyq3XCqpveJcVPI8DMSObD508TyCk1AJtQ6fxmUqSawRIVy44ORhKKwo7Rdj7PJkvC4yTKPGf1bggqPKugAV8hJQaRaAZgPDBFigBk7jZC0sv/yjTn4txcWg42hLeHF+mEvpi0Jd2Kf/oQ53BubZcOTVnx6zs1bF2p1fHm5DwC+mXCeErVkYxOITdily30q3woX0PVE7lrfHXgWNpkQq4oVwUNN2JNfvOzgwa7tY5bgk2pUCd87vanOt4whrausZF4JzpEk+dq5EEAD5Ddbtm7Ks5V3pN3WYA1fub6DOSNi5AdZDQhcepY9x+eU6EMCFvv72QmEQYiEqG53mWZW0dwAh49a3SZzR6bAbYmpOMOdQ9Vu36R/CGWy0pQT1hjiQQoqaQPSmV46K/0uPAknTSnZTf5isSxHVfJH9FGxkQw6wBWAsa2A5WrV8l+nMD8tDKlQ8a0Ga6dl6Kswb1KsyxPBU9Zb4QIjrexalEkAqOXOEF1wry+LMF79gZCau9AzLHBkQ6VPPsQUpYZWfXK3VM4M81/beH9uoZ4mM5CCzOQpfFSYXz2gDgHWvhowuFMWPQVTZlO6/ZdFa1xCVMTYf3f/tYSdxtyTgjlZ4NygRgL7UTVa3cB0=
   file:
     # The names of the binaries to output, based on the -output template passed to gox.
-    #- bin/ini-op.windows.amd64.exe
+    - bin/ini-op.windows.amd64.exe
     - bin/ini-op.darwin.amd64.gz
     - bin/ini-op.linux.amd64.gz
   on:
