@@ -50,7 +50,7 @@ deploy:
     secure: KU1WLzi4IRjgiPJ+mwtJOaHb/ZwZFvPzPkOnKDErn3nLf3HJjnjsSWaHmyq3XCqpveJcVPI8DMSObD508TyCk1AJtQ6fxmUqSawRIVy44ORhKKwo7Rdj7PJkvC4yTKPGf1bggqPKugAV8hJQaRaAZgPDBFigBk7jZC0sv/yjTn4txcWg42hLeHF+mEvpi0Jd2Kf/oQ53BubZcOTVnx6zs1bF2p1fHm5DwC+mXCeErVkYxOITdily30q3woX0PVE7lrfHXgWNpkQq4oVwUNN2JNfvOzgwa7tY5bgk2pUCd87vanOt4whrausZF4JzpEk+dq5EEAD5Ddbtm7Ks5V3pN3WYA1fub6DOSNi5AdZDQhcepY9x+eU6EMCFvv72QmEQYiEqG53mWZW0dwAh49a3SZzR6bAbYmpOMOdQ9Vu36R/CGWy0pQT1hjiQQoqaQPSmV46K/0uPAknTSnZTf5isSxHVfJH9FGxkQw6wBWAsa2A5WrV8l+nMD8tDKlQ8a0Ga6dl6Kswb1KsyxPBU9Zb4QIjrexalEkAqOXOEF1wry+LMF79gZCau9AzLHBkQ6VPPsQUpYZWfXK3VM4M81/beH9uoZ4mM5CCzOQpfFSYXz2gDgHWvhowuFMWPQVTZlO6/ZdFa1xCVMTYf3f/tYSdxtyTgjlZ4NygRgL7UTVa3cB0=
   file:
     # The names of the binaries to output, based on the -output template passed to gox.
-    - bin/ini-op.windows.amd64.exe
+    - bin/ini-op.windows.amd64.exe.gz
     - bin/ini-op.darwin.amd64.gz
     - bin/ini-op.linux.amd64.gz
   on:
