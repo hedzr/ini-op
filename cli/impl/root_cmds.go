@@ -14,9 +14,9 @@ var (
 		Command: cmdr.Command{
 			BaseOpt: cmdr.BaseOpt{
 				Name: ini_op.APPNAME,
-				Flags: []*cmdr.Flag{
-					// global options here.
-				},
+			},
+			Flags: []*cmdr.Flag{
+				// global options here.
 			},
 			PreAction:  Pre,
 			PostAction: Post,
@@ -83,7 +83,7 @@ var (
 			Name:        "Section",
 			Short:       "s",
 			Full:        "section",
-			Aliases:     []string{"sec",},
+			Aliases:     []string{"sec"},
 			Description: "get/put section",
 		},
 		SubCommands: []*cmdr.Command{
