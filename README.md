@@ -6,6 +6,7 @@
 
 Read/Write inifile.
 
+It's used for my [git-submodule-rm](https://gist.github.com/hedzr/eff2a3b67efa3d3c52a0fc0d292182d5).
 
 
 ```bash
