@@ -9,3 +9,5 @@ require (
 )
 
 // replace github.com/hedzr/cmdr v1.0.5 => ../cmdr
+
+go 1.13
