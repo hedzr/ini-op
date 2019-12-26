@@ -7,6 +7,7 @@ package impl_test
 import (
 	"fmt"
 	"github.com/go-ini/ini"
+	"github.com/hedzr/logex"
 	"os"
 	"testing"
 )
@@ -16,6 +17,8 @@ func TestFine(t *testing.T) {
 }
 
 func test123(ff string) {
+	defer logex.CaptureLog(t).Release()
+
 	// read ini file
 	cfg, err := ini.Load(ff)
 	if err != nil {
@@ -44,5 +47,3 @@ func test123(ff string) {
 		os.Exit(1)
 	}
 }
-
-
