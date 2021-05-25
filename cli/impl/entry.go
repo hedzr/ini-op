@@ -6,17 +6,18 @@ package impl
 
 import (
 	"github.com/hedzr/cmdr"
-	"github.com/sirupsen/logrus"
+	"github.com/hedzr/log"
+	"github.com/hedzr/logex/build"
 )
 
 func Entry() {
 
 	if err := cmdr.Exec(rootCmd,
 		cmdr.WithEnvPrefix("IO"),
-		cmdr.WithLogex(logrus.InfoLevel),
+		cmdr.WithLogx(build.New(log.NewLoggerConfigWith(true, "sugar", "debug"))),
 		cmdr.WithWatchMainConfigFileToo(true),
 	); err != nil {
-		logrus.Errorf("Error: %v", err)
+		log.Errorf("Error: %v", err)
 	}
 
 }

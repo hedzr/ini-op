@@ -5,7 +5,7 @@
 package impl
 
 import (
-	log "github.com/sirupsen/logrus"
+	"github.com/hedzr/log"
 	"os"
 	"path/filepath"
 )

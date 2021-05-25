@@ -13,10 +13,10 @@ import (
 )
 
 func TestFine(t *testing.T) {
-	// test123("dsds=1")
+	test123(t, "dsds=1")
 }
 
-func test123(ff string) {
+func test123(t *testing.T, ff string) {
 	defer logex.CaptureLog(t).Release()
 
 	// read ini file
