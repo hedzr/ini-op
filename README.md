@@ -8,7 +8,6 @@ Read/Write inifile.
 
 It's used for my [git-submodule-rm](https://gist.github.com/hedzr/eff2a3b67efa3d3c52a0fc0d292182d5).
 
-
 ```bash
 $ bin/ini-op
 ini-op is an effective tool for read/write inifile by Hedzr Yeh <hedzrz@gmail.com> - v0.2.3
@@ -107,21 +106,15 @@ $ ini-op e put server port 1313 $HOME/abc.ini
 $ ini-op e rm server port $HOME/abc.ini
 ```
 
-
-
 ## **TODO**
 
 - [x] rewrite with new `cmdr`;
 - [ ] add `yaml`, `json`, and `toml` supports;
 - [ ] clean codes
 
-
-
 ## Contrib
 
 Feel free to issue.
-
-
 
 ## LICENSE
 
