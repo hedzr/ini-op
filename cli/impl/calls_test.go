@@ -20,8 +20,21 @@ func TestFine(t *testing.T) {
 func test123(t *testing.T, ff string) {
 	defer logex.CaptureLog(t).Release()
 
+	file := `/tmp/1.ini`
+	func() {
+		if fx, err := os.Create(file); err != nil {
+			t.Fatalf("cannot create file %q", file)
+		} else {
+			_, _ = fx.WriteString(ff)
+			_ = fx.Close()
+		}
+	}()
+	defer func() {
+		_ = os.Remove(file)
+	}()
+
 	// read ini file
-	cfg, err := ini.Load(ff)
+	cfg, err := ini.Load(file)
 	if err != nil {
 		fmt.Printf("Fail to read file: %v", err)
 		os.Exit(1)
