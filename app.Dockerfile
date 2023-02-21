@@ -87,7 +87,7 @@ RUN export GOVER=$(go version) && \
     CGO_ENABLED=0 go build -v -trimpath -gcflags=all='-l -B' \
     -tags docker -tags k8s,istio -tags cmdr-apps,hzstudio \
     -ldflags "$LDFLAGS" \
-    -o $TGT/var/lib/$APPNAME/$APPNAME ./main.go
+    -o $TGT/var/lib/$APPNAME/$APPNAME ./cli/ini-op/main.go
 RUN ls -la $TGT $TGT/var/lib/$APPNAME $TGT/etc/$APPNAME
 # RUN ldd --help
 # RUN ldd $TGT/var/lib/$APPNAME/$APPNAME   # need musl-utils & musl-dev
