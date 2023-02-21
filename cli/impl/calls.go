@@ -6,10 +6,11 @@ package impl
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/go-ini/ini"
 	"github.com/hedzr/cmdr"
 	"github.com/hedzr/log"
-	"os"
 )
 
 //
@@ -89,7 +90,7 @@ func entryRemove(cmd *cmdr.Command, args []string) (err error) {
 			os.Exit(1)
 		}
 
-		//} else if len(args) == 1 {
+		// } else if len(args) == 1 {
 		//	// read from stdin
 	} else {
 		cmd.PrintHelp(false)

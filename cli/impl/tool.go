@@ -5,9 +5,10 @@
 package impl
 
 import (
-	"github.com/hedzr/log"
 	"os"
 	"path/filepath"
+
+	"github.com/hedzr/log"
 )
 
 func appDir() string {

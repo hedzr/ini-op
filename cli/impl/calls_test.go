@@ -6,10 +6,11 @@ package impl_test
 
 import (
 	"fmt"
-	"github.com/go-ini/ini"
-	"github.com/hedzr/logex"
 	"os"
 	"testing"
+
+	"github.com/go-ini/ini"
+	"github.com/hedzr/logex"
 )
 
 func TestFine(t *testing.T) {
