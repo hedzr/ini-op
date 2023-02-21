@@ -2,7 +2,7 @@ language: go
 sudo: false
 matrix:
   include:
-    - go: 1.12.x
+    - go: 1.20.x
       env:
         - LATEST=true
         - IMPPATH=github.com/hedzr/ini-op
