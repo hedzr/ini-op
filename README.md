@@ -4,7 +4,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/hedzr/ini-op)](https://goreportcard.com/report/github.com/hedzr/ini-op)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/hedzr/ini-op.svg?label=release)
 
-Read/Write inifile.
+Read/Write inifile. Especially deleting an entry or a section.
 
 It's used for my [git-submodule-rm](https://gist.github.com/hedzr/eff2a3b67efa3d3c52a0fc0d292182d5).
 
