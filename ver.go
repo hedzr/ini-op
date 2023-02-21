@@ -6,6 +6,6 @@ package ini_op
 
 const (
 	APPNAME    = "ini-op"
-	Version    = "0.3.3"
-	VersionInt = 0x00000303
+	Version    = "0.3.7"
+	VersionInt = 0x00000307
 )
