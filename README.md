@@ -32,7 +32,19 @@ Options:
 Type '-h' or '--help' to get command help screen.
 ```
 
+## History
+
+- v0.3.9
+  - upgrade to [hedzr/cmdr](https://github.com/hedzr/cmdr) v1.11.9+
+  - security maintains since golang/x/net should be upgraded
+  - remove unavailable travis actions
+  - enable github actions
+    - packaged to github packages: [here](https://github.com/users/hedzr/packages/container/package/ini-op)
+    - keep dockerhub release
+
 ## Commands
+
+[TODO] The following chapters need to be simplified.
 
 ### command `section`
 
